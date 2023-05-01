@@ -101,6 +101,17 @@
 			<artifactId>classgraph</artifactId>
 			<version>4.8.157</version>
 		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.5</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.1.4</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
