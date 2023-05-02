@@ -23,8 +23,4 @@ public class StatusStep {
     public Map<Integer, String> getSteps() {
         return steps;
     }
-
-    public void setSteps(Map<Integer, String> steps) {
-        this.steps = steps;
-    }
 }
