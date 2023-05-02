@@ -5,21 +5,19 @@ import com.mirai.importback.entities.StatusStep;
 
 public class UpdateOrderStepsService {
 
-    private Orders order;
     private StatusStep step;
 
-    public UpdateOrderStepsService(Orders order) {
-        this.order = order;
+    public UpdateOrderStepsService() {
         this.step = new StatusStep();
     }
 
-    public void updateOrderStatus() {
+    public void updateOrderStatus(Orders order) {
         int currentStatus = order.getStatusStep();
         order.setStatus(step.getSteps().get(currentStatus + 1));
         order.setStatusStep(currentStatus + 1);
     }
 
-    public String getStatusMessage() {
-        return this.order.getStatus();
+    public String getStatusMessage(Orders order) {
+        return order.getStatus();
     }
 }

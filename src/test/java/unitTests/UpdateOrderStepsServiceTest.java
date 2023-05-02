@@ -14,21 +14,21 @@ class UpdateOrderStepsServiceTest {
 
     UpdateOrderStepsServiceTest() {
         this.order = new Orders("", 0);
-        this.sendOrderUpdateService = new UpdateOrderStepsService(this.order);
+        this.sendOrderUpdateService = new UpdateOrderStepsService();
         this.steps = new StatusStep();
     }
 
     @Test
     void testOrderIsPending() {
-        this.sendOrderUpdateService.updateOrderStatus();
-        Assertions.assertEquals("PENDING", this.sendOrderUpdateService.getStatusMessage());
+        this.sendOrderUpdateService.updateOrderStatus(this.order);
+        Assertions.assertEquals("PENDING", this.sendOrderUpdateService.getStatusMessage(this.order));
     }
 
     @Test
     void testOrderStepsFlow() {
         for (int i = 1; i <= 5; i++) {
-            this.sendOrderUpdateService.updateOrderStatus();
-            Assertions.assertEquals(this.steps.getSteps().get(i), this.sendOrderUpdateService.getStatusMessage());
+            this.sendOrderUpdateService.updateOrderStatus(this.order);
+            Assertions.assertEquals(this.steps.getSteps().get(i), this.sendOrderUpdateService.getStatusMessage(this.order));
         }
     }
 }
