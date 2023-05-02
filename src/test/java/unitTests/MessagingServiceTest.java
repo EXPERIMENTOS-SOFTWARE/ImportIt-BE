@@ -1,11 +1,14 @@
 package unitTests;
 
+import com.mirai.importback.entities.Message;
 import com.mirai.importback.entities.Users;
 import com.mirai.importback.services.impl.MessagingService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+
+import java.util.ArrayList;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class MessagingServiceTest {
@@ -33,6 +36,17 @@ class MessagingServiceTest {
         this.messagingService.sendMessage(this.traveler.getName(), "Yeah.");
         this.messagingService.sendMessage(this.user.getName(), "Bye.");
         this.messagingService.sendMessage(this.traveler.getName(), "Bye.");
+    }
+
+    @Test
+    void messageHasAllProperties() {
+        ArrayList<Message> messages = this.messagingService.getMessages();
+
+        for (int i = 0; i < messages.size(); i++) {
+            Assertions.assertNotNull(messages.get(i).getFrom());
+            Assertions.assertNotNull(messages.get(i).getTime());
+            Assertions.assertNotNull(messages.get(i).getMessageContent());
+        }
     }
 
     @Test
