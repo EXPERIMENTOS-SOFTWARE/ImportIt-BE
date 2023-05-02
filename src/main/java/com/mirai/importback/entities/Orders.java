@@ -1,8 +1,6 @@
 package com.mirai.importback.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -11,6 +9,8 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class Orders {
 
     @Id
@@ -32,7 +32,26 @@ public class Orders {
     private String amount;
     @Column(name="status",nullable = true,length = 20)
     private String status;
+    @Column(name="statusStep",nullable = true,length = 20)
+    private int statusStep;
     @Column(name="comision",nullable = true,length = 20)
     private String comision;
 
+    public Orders(long id, String dni, String name, String url, String tittle, String price, String weight, String amount, String status, String comision) {
+        this.id = id;
+        this.dni = dni;
+        this.name = name;
+        this.url = url;
+        this.tittle = tittle;
+        this.price = price;
+        this.weight = weight;
+        this.amount = amount;
+        this.status = status;
+        this.comision = comision;
+    }
+
+    public Orders(String status, int statusStep) {
+        this.status = status;
+        this.statusStep = statusStep;
+    }
 }
