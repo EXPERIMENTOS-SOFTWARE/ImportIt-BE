@@ -18,6 +18,10 @@ public class MessagingService {
         this.messages.add(message);
     }
 
+    public void sendMessage(Message message) {
+        this.messages.add(message);
+    }
+
     public Message filterMessageByContent(String content) {
         for (Message message : this.messages) {
             if (message.getMessageContent().contains(content)) {
