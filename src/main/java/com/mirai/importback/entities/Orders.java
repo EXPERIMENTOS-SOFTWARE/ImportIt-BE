@@ -36,6 +36,8 @@ public class Orders {
     private int statusStep;
     @Column(name="comision",nullable = true,length = 20)
     private String comision;
+    @Column(name="travelerAssigned",nullable = true,length = 20)
+    private boolean travelerAssigned;
 
     public Orders(long id, String dni, String name, String url, String tittle, String price, String weight, String amount, String status, String comision) {
         this.id = id;
@@ -46,12 +48,15 @@ public class Orders {
         this.price = price;
         this.weight = weight;
         this.amount = amount;
-        this.status = status;
+        this.status = "PENDING";
+        this.statusStep = 1;
         this.comision = comision;
+        this.travelerAssigned = false;
     }
 
     public Orders(String status, int statusStep) {
         this.status = status;
         this.statusStep = statusStep;
+        this.travelerAssigned = false;
     }
 }
