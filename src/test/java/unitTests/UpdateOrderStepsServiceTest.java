@@ -24,6 +24,12 @@ class UpdateOrderStepsServiceTest {
     }
 
     @Test
+    void testManualOrderStatusUpdate() {
+        this.sendOrderUpdateService.updateOrderStatus(this.order, 4);
+        Assertions.assertEquals("TRAVELER_IN_TRANSIT", this.sendOrderUpdateService.getStatusMessage(this.order));
+    }
+
+    @Test
     void testOrderStepsFlow() {
         for (int i = 2; i <= 5; i++) {
             this.sendOrderUpdateService.updateOrderStatus(this.order);

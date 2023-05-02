@@ -17,6 +17,11 @@ public class UpdateOrderStepsService {
         order.setStatusStep(currentStatus + 1);
     }
 
+    public void updateOrderStatus(Orders order, int step) {
+        order.setStatus(this.step.getSteps().get(step));
+        order.setStatusStep(step);
+    }
+
     public String getStatusMessage(Orders order) {
         return order.getStatus();
     }
