@@ -1,4 +1,4 @@
-package unitTests;
+package com.mirai.importback.unitTests;
 
 import com.mirai.importback.services.impl.PriceCalculationService;
 import org.junit.jupiter.api.Assertions;
