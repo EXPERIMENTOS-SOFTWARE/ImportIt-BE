@@ -26,6 +26,9 @@ jobs:
       - name: Ejecutar pruebas unitarias con Maven
         run: mvn test -Dtest="**/unitTests/*.java"
 
+      - name: Ejecutar pruebas integrales con Maven
+        run: mvn test -Dtest="**/integrationTests/*.java"
+
       - name: Cargar resultados de las pruebas
         uses: actions/upload-artifact@v2
         with:
